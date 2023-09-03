@@ -71,8 +71,8 @@ class CheckableTabWidget(QtWidgets.QTabWidget):
 
     def __init__(self, *args, **kwargs):
         QtWidgets.QTabWidget.__init__(self, *args, **kwargs)
-        self.setTabBar(TabBar(self))
-        self.setTabPosition(QtWidgets.QTabWidget.West)
+        self.setTabBar(QtWidgets.QTabBar(self))
+        self.setTabPosition(QtWidgets.QTabWidget.North)
 
     def addTab(self, widget, title):
         """
