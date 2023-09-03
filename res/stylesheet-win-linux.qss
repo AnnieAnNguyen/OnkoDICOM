@@ -350,8 +350,8 @@ QTabBar::tab#batch-tabs {
     padding: 0 10px;
     background-color: rgb(244, 245, 245);
     text-align: center;
-    width: 36px;
-    height: 150px;
+    /* width: 36px;
+    height: 150px; */
 }
 QTabBar::tab:selected#batch-tabs {
     font-weight: bold;
