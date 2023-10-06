@@ -6,6 +6,7 @@ from PySide6 import QtCore, QtGui, QtWidgets
 from src.Controller.BatchProcessingController import BatchProcessingController
 from src.View.batchprocessing.SelectSubgroupOptions import \
     SelectSubgroupOptions
+from src.View.batchprocessing.AnonymisationOptions import AnonymisationOptions
 from src.View.batchprocessing.ClinicalDataSR2CSVOptions import \
     ClinicalDataSR2CSVOptions
 from src.View.batchprocessing.CSV2ClinicalDataSROptions import \
@@ -175,6 +176,7 @@ class UIBatchProcessingWindow(object):
 
         # Tabs
         self.select_subgroup_tab = SelectSubgroupOptions()
+        self.anonymisation_tab = AnonymisationOptions()
         self.iso2roi_tab = ISO2ROIOptions()
         self.suv2roi_tab = SUV2ROIOptions()
         self.dvh2csv_tab = DVH2CSVOptions()
@@ -192,6 +194,7 @@ class UIBatchProcessingWindow(object):
 
         # Add tabs to tab widget
         self.tab_widget.addTab(self.select_subgroup_tab, "Select Subgroup")
+        self.tab_widget.addTab(self.anonymisation_tab, "Anonymisation")
         self.tab_widget.addTab(self.iso2roi_tab, "ISO2ROI")
         self.tab_widget.addTab(self.suv2roi_tab, "SUV2ROI")
         self.tab_widget.addTab(self.dvh2csv_tab, "DVH2CSV")
