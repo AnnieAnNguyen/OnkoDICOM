@@ -19,7 +19,7 @@ class AnonymisationOptions(QtWidgets.QWidget):
         # Create the main layout
         self.main_layout = QtWidgets.QVBoxLayout()
 
-        self.display_section = QtWidgets.QGroupBox("Display Anonymous Options")
+        self.display_section = QtWidgets.QGroupBox("Anonymize Options")
         self.display_layout = QtWidgets.QHBoxLayout()
 
         self.gender_checkbox = QtWidgets.QCheckBox("Gender")
@@ -30,7 +30,7 @@ class AnonymisationOptions(QtWidgets.QWidget):
 
         self.display_section.setLayout(self.display_layout)
 
-        self.save_section = QtWidgets.QGroupBox("Save Anonymous Options")
+        self.save_section = QtWidgets.QGroupBox("Construct AnonID - Choose Suffixes")
         self.save_layout = QtWidgets.QHBoxLayout()
 
         self.name_checkbox = QtWidgets.QCheckBox("Name")
@@ -42,7 +42,6 @@ class AnonymisationOptions(QtWidgets.QWidget):
         self.cancer_checkbox = QtWidgets.QCheckBox("Type of Cancer")
         self.date_checkbox = QtWidgets.QCheckBox("Saved Date")
 
-
         self.save_layout.addWidget(self.name_checkbox)
         self.save_layout.addWidget(self.id_checkbox)
         self.save_layout.addWidget(self.cancer_checkbox)
@@ -50,7 +49,7 @@ class AnonymisationOptions(QtWidgets.QWidget):
 
         self.save_section.setLayout(self.save_layout)
 
-        self.main_layout.addWidget(self.display_section)
         self.main_layout.addWidget(self.save_section)
+        self.main_layout.addWidget(self.display_section)
 
         self.setLayout(self.main_layout)
