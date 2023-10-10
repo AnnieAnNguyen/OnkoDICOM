@@ -9,6 +9,7 @@ import uuid
 
 import pandas as pd
 import pydicom
+import re
 
 try:
     import pymedphys.experimental.pseudonymisation as pseudonymise
