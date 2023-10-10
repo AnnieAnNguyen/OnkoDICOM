@@ -769,6 +769,8 @@ def anonymize(path, datasets, file_paths, rawdvh):
     else:
         # not bothering to check if the data itself was already pseudonymised.
         # if it was, just  apply (another round of) pseudonymisation.
+        # automated_test
+        print(anon_file_name("./mybad\@:;filename$with%problematic~chara&ters"))
         hashed_patient_id = anon_file_name(pseudonymise.pseudonymisation_dispatch["LO"](
             original_p_id))
         
