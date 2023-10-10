@@ -768,9 +768,9 @@ def anonymize(path, datasets, file_paths, rawdvh):
     else:
         # not bothering to check if the data itself was already pseudonymised.
         # if it was, just  apply (another round of) pseudonymisation.
-        hashed_patient_id = pseudonymise.pseudonymisation_dispatch["LO"](
-            original_p_id
-        ).replace("/", "")
+        hashed_patient_id = anonFileName(pseudonymise.pseudonymisation_dispatch["LO"](
+            original_p_id))
+        
         # hashed_patient_name = pseudonymise.pseudonymisation_dispatch[
         # "PN"](patient_name_in_dataset) changing the approach a bit with
         # pseudonymisation instead of using a hash of the patient name for
@@ -864,6 +864,15 @@ def anonymize(path, datasets, file_paths, rawdvh):
 
     return str(anonymised_patient_full_path)
 
+def anonFileName(hashed_patient_id):
+    # Avoid forbidden characters in directory names
+    file_name = re.sub('["<", ">" , ":", "\"", "/", "\\" , "|", "?" , "*" ]', "_", hashed_patient_id)
+    # Avoid hidden directory
+    if file_name[0] == '.':
+        file_name_asList = list(file_name)
+        file_name_asList[0] = "_"
+        file_name = ''.join(file_name_asList)
+    return file_name
 
 def _export_anonymised_clinical_data(
         current_patient_id,
