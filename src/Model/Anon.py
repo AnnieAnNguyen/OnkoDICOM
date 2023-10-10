@@ -865,8 +865,10 @@ def anonymize(path, datasets, file_paths, rawdvh):
     return str(anonymised_patient_full_path)
 
 def anon_file_name(hashed_patient_id):
+    file_name = hashed_patient_id
     # Avoid forbidden characters in directory names
-    file_name = re.sub('["<", ">" , ":", "\"", "/", "\\" , "|", "?" , "*" ]', "_", hashed_patient_id)
+    file_name = re.sub('["<", ">" , ":", """, "/", "\" , "|", "?" , "*", "&", "~", "$", ";"]', "_", file_name)
+    file_name = file_name.replace("\\", "_")
     # Avoid hidden directory
     if file_name[0] == '.':
         file_name_asList = list(file_name)
